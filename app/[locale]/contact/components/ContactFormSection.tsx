@@ -57,14 +57,14 @@ const ContactFormSection = () => {
             <div className="mb-4 sm:grid sm:grid-cols-2 sm:gap-4 lg:gap-6 flex flex-col gap-3">
               <div>
                 <div className="font-bold text-sm mb-1">{tInfo('email.title')}</div>
-                <a href="mailto:hello@nagabalm.com" className="text-sm text-[#F9461C] hover:text-[#d13a17]">
-                  hello@nagabalm.com
+                <a href="mailto:info@thenagabalm.com" className="text-sm text-[#F9461C] hover:text-[#d13a17]">
+                  info@thenagabalm.com
                 </a>
               </div>
               <div>
                 <div className="font-bold text-sm mb-1">{tInfo('phone.title')}</div>
-                <a href="tel:+85516269359" className="text-sm text-[#F9461C] hover:text-[#d13a17]">
-                  +855 16 269 359
+                <a href="tel:+85512269359" className="text-sm text-[#F9461C] hover:text-[#d13a17]">
+                  +855 12 269 359
                 </a>
               </div>
             </div>
