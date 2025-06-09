@@ -83,8 +83,8 @@ const Footer = () => {
                 </div>
                 <div>
                   <div className="font-semibold mb-1">{t('footer.phone')}</div>
-                  <a href="tel:+85516269359" className="text-[#F9461C] hover:text-[#d13a17]">
-                    +855 16 269 359
+                  <a href="tel:+85512269359" className="text-[#F9461C] hover:text-[#d13a17]">
+                    +855 12 269 359
                   </a>
                 </div>
               </div>
