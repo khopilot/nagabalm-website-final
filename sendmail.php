@@ -22,6 +22,12 @@ if (!$name || !$email || !$message) {
     exit;
 }
 
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    http_response_code(422);
+    echo json_encode(['error' => 'Adresse email invalide.']);
+    exit;
+}
+
 $mail = new PHPMailer(true);
 
 try {
