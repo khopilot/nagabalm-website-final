@@ -80,7 +80,7 @@ const Navbar = () => {
     const isActive = pathname === fullHref;
     
     const baseClasses = isMobile 
-      ? "text-xl font-bold tracking-wide transition-all duration-300 relative group py-4 px-8 rounded-full min-h-[64px] flex items-center justify-center w-full max-w-sm mx-auto shadow-lg"
+      ? "text-base font-semibold tracking-wide transition-all duration-300 relative group py-3 px-6 rounded-full min-h-[48px] flex items-center justify-center w-full max-w-xs mx-auto shadow-md"
       : "text-xs sm:text-sm font-bold tracking-wider transition-all duration-300 hover:scale-105 relative group px-2 sm:px-3 lg:px-4 py-1.5 sm:py-2";
     
     return (
@@ -179,44 +179,44 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       <nav
-        className={`fixed left-1/2 top-3 z-50 transform -translate-x-1/2 w-[96vw] max-w-md
+        className={`fixed left-1/2 top-2 z-50 transform -translate-x-1/2 w-[92vw] max-w-xs
           ${scrolled 
-            ? "bg-white/95 backdrop-blur-md shadow-xl border border-white/30" 
-            : "bg-white/90 backdrop-blur-sm shadow-lg"
+            ? "bg-white/95 backdrop-blur-md shadow-lg border border-white/30" 
+            : "bg-white/90 backdrop-blur-sm shadow-md"
           }
           rounded-full transition-all duration-500 ease-out md:hidden
           ${showNavbar ? 'translate-y-0 opacity-100 pointer-events-auto' : '-translate-y-full opacity-0 pointer-events-none'}
           transition-transform transition-opacity duration-300`}
       >
-        <div className="flex items-center justify-between px-4 py-3 relative z-10">
+        <div className="flex items-center justify-between px-3 py-2 relative z-10">
           {/* Bouton hamburger animé plus grand et tactile */}
           <button
-            className="flex flex-col justify-center items-center w-12 h-12 focus:outline-none 
-              transition-all duration-300 hover:scale-110 rounded-xl hover:bg-[#F97316]/10 active:scale-95
+            className="flex flex-col justify-center items-center w-10 h-10 focus:outline-none 
+              transition-all duration-300 hover:scale-110 rounded-lg hover:bg-[#F97316]/10 active:scale-95
               tap-highlight-transparent select-none"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
             <span
-              className={`block w-6 h-0.5 bg-[#F97316] transition-all duration-300 rounded-full ${
-                isOpen ? "rotate-45 translate-y-2" : ""
+              className={`block w-5 h-0.5 bg-[#F97316] transition-all duration-300 rounded-full ${
+                isOpen ? "rotate-45 translate-y-1.5" : ""
               }`}
             />
             <span
-              className={`block w-6 h-0.5 bg-[#F97316] my-1.5 transition-all duration-300 rounded-full ${
+              className={`block w-5 h-0.5 bg-[#F97316] my-1 transition-all duration-300 rounded-full ${
                 isOpen ? "opacity-0 scale-0" : ""
               }`}
             />
             <span
-              className={`block w-6 h-0.5 bg-[#F97316] transition-all duration-300 rounded-full ${
-                isOpen ? "-rotate-45 -translate-y-2" : ""
+              className={`block w-5 h-0.5 bg-[#F97316] transition-all duration-300 rounded-full ${
+                isOpen ? "-rotate-45 -translate-y-1.5" : ""
               }`}
             />
           </button>
 
           {/* Logo mobile centré plus grand */}
           <Link href={`/${locale}`} className="absolute left-1/2 transform -translate-x-1/2">
-            <div className="w-9 h-9 relative transition-transform duration-300 hover:scale-110 active:scale-95">
+            <div className="w-8 h-8 relative transition-transform duration-300 hover:scale-110 active:scale-95">
               <Image
                 src="/images/Logo/Naga Balm__Brandmark_Fire.png"
                 alt="Naga Balm Logo"
@@ -248,13 +248,13 @@ const Navbar = () => {
         
         {/* Contenu du menu responsive */}
         <div className="relative h-full flex flex-col items-center justify-center px-6 py-8">
-          {/* Logo avec animation d'entrée plus grand */}
+          {/* Logo avec animation d'entrée */}
           <div 
-            className={`mb-12 transition-all duration-700 delay-200 ${
+            className={`mb-8 transition-all duration-700 delay-200 ${
               isOpen ? "scale-100 opacity-100 translate-y-0" : "scale-50 opacity-0 translate-y-10"
             }`}
           >
-            <div className="w-16 h-16 relative">
+            <div className="w-12 h-12 relative">
               <Image
                 src="/images/Logo/Naga Balm__Brandmark_Fire.png"
                 alt="Naga Logo"
@@ -266,7 +266,7 @@ const Navbar = () => {
           </div>
 
           {/* Navigation avec animations décalées - version responsive */}
-          <div className="flex flex-col items-center gap-4 w-full max-w-sm mx-auto">
+          <div className="flex flex-col items-center gap-3 w-full max-w-xs mx-auto">
             {navLinks.map((link, index) => (
               <div
                 key={link.href}
@@ -293,18 +293,18 @@ const Navbar = () => {
               isOpen ? "opacity-70 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <p className="text-sm text-gray-500 font-medium mb-4">Made in Cambodia 🇰🇭</p>
+            <p className="text-xs text-gray-500 font-medium mb-3">Made in Cambodia 🇰🇭</p>
             
             {/* Social Media Icons */}
-            <div className="flex justify-center gap-4">
+            <div className="flex justify-center gap-3">
               <a 
                 href="https://www.facebook.com/nagabalmkh/" 
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook" 
-                className="w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-[#F9461C] hover:bg-[#F9461C] hover:text-white transition-all duration-300 hover:scale-110 shadow-lg border border-[#F9461C]/20"
+                className="w-8 h-8 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-[#F9461C] hover:bg-[#F9461C] hover:text-white transition-all duration-300 hover:scale-110 shadow-md border border-[#F9461C]/20"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5L14.17.5C10.24.5,9.1,3.3,9.1,5.47V7.46H5.5v3.4h3.6V22.5h5.4V10.86h3.47l.44-3.4"/>
                 </svg>
               </a>
@@ -313,9 +313,9 @@ const Navbar = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram" 
-                className="w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-[#F9461C] hover:bg-gradient-to-r hover:from-[#F56565] hover:to-[#C53030] hover:text-white transition-all duration-300 hover:scale-110 shadow-lg border border-[#F9461C]/20"
+                className="w-8 h-8 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-[#F9461C] hover:bg-gradient-to-r hover:from-[#F56565] hover:to-[#C53030] hover:text-white transition-all duration-300 hover:scale-110 shadow-md border border-[#F9461C]/20"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12,2.2c3.2,0,3.6,0,4.8.1c3.3.1,4.8,1.7,4.9,4.9c.1,1.2.1,1.6.1,4.8s0,3.6-.1,4.8c-.1,3.2-1.7,4.8-4.9,4.9c-1.2.1-1.6.1-4.8.1s-3.6,0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9c-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-3.2,1.7-4.8,4.9-4.9c1.2-.1,1.6-.1,4.8-.1M12,0C8.7,0,8.3,0,7.1.1c-4.4.2-6.8,2.6-7,7C0,8.3,0,8.7,0,12s0,3.7.1,4.9c.2,4.4,2.6,6.8,7,7C8.3,24,8.7,24,12,24s3.7,0,4.9-.1c4.4-.2,6.8-2.6,7-7C24,15.7,24,15.3,24,12s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7,0,15.3,0,12,0Zm0,5.8A6.2,6.2,0,1,0,18.2,12,6.2,6.2,0,0,0,12,5.8Zm0,10.2A4,4,0,1,1,16,12,4,4,0,0,1,12,16Zm6.4-10.5a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,18.4,5.5Z"/>
                 </svg>
               </a>
@@ -324,9 +324,9 @@ const Navbar = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Telegram" 
-                className="w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-[#F9461C] hover:bg-[#0088cc] hover:text-white transition-all duration-300 hover:scale-110 shadow-lg border border-[#F9461C]/20"
+                className="w-8 h-8 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-[#F9461C] hover:bg-[#0088cc] hover:text-white transition-all duration-300 hover:scale-110 shadow-md border border-[#F9461C]/20"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
                 </svg>
               </a>
