@@ -9,7 +9,7 @@ const AboutHeroSection = () => {
   const t = useTranslations('about.hero');
   
   return (
-    <section className="w-full min-h-[50vh] sm:min-h-[40vh] lg:min-h-[22vh] bg-[#FFE6B0] flex flex-col lg:flex-row items-center justify-between pt-2 pb-1 relative overflow-hidden">
+    <section className="w-full min-h-[65vh] sm:min-h-[60vh] lg:min-h-[45vh] bg-[#FFE6B0] flex flex-col lg:flex-row items-center justify-between pt-4 pb-3 relative overflow-hidden">
       {/* Cloud decorations */}
       {/* Top-left cloud */}
       <div className="absolute top-0 left-0 w-24 sm:w-32 md:w-40 lg:w-56 xl:w-72 h-[50px] sm:h-[60px] md:h-[80px] lg:h-[100px] xl:h-[120px] z-10">
@@ -55,9 +55,9 @@ const AboutHeroSection = () => {
           <Image 
             src="/images/Logo/NagaInFiredefr.png" 
             alt="Naga In Fire Logo" 
-            width={540} 
-            height={540} 
-            className="object-contain w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[480px] lg:h-[480px] xl:w-[540px] xl:h-[540px] lg:translate-y-[30%] lg:-translate-x-[20px]" 
+            width={900} 
+            height={900} 
+            className="object-contain w-96 h-96 sm:w-[450px] sm:h-[450px] md:w-[550px] md:h-[550px] lg:w-[700px] lg:h-[700px] xl:w-[900px] xl:h-[900px] lg:translate-y-[30%] lg:-translate-x-[20px]" 
           />
         </div>
       </div>
