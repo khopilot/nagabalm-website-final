@@ -28,8 +28,9 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.hostinger.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'info@thenagabalm.com';
-    $mail->Password = 'Info,2025'; // Sécuriser plus tard via .env
+    // Credentials are read from environment variables for better security
+    $mail->Username = getenv('SMTP_USER');
+    $mail->Password = getenv('SMTP_PASS');
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port = 465;
 

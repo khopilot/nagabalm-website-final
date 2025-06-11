@@ -86,6 +86,17 @@ npm run build
 npm start
 ```
 
+### Environment Variables
+
+Set the following variables in your hosting environment so the contact form can
+send email via SMTP:
+
+- `SMTP_USER` – your SMTP username
+- `SMTP_PASS` – your SMTP password
+
+These variables are required for `sendmail.php` to authenticate with your mail
+server in production.
+
 ---
 
 ## 🛠️ Tech Stack
