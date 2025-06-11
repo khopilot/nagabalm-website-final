@@ -15,7 +15,7 @@ const ContactFormSection = () => {
     const data = new FormData(form);
     const res = await fetch('/sendmail.php', { method: 'POST', body: data });
     const json = await res.json();
-    if (res.ok && json.status === 'OK') {
+    if (res.ok && (json.status === 'OK' || json.status === 'OK_TEST')) {
       alert('Message envoyé !');
       form.reset();
     } else {
