@@ -14,6 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 $name = htmlspecialchars(trim($_POST['name'] ?? ''));
 $email = htmlspecialchars(trim($_POST['email'] ?? ''));
+$phone = htmlspecialchars(trim($_POST['phone'] ?? ''));
+$subjectField = htmlspecialchars(trim($_POST['subject'] ?? ''));
 $message = htmlspecialchars(trim($_POST['message'] ?? ''));
 
 if (!$name || !$email || !$message) {
@@ -46,7 +48,7 @@ try {
 
     $mail->isHTML(true);
     $mail->Subject = 'Nouveau message du site';
-    $mail->Body    = "<b>Nom:</b> $name<br><b>Email:</b> $email<br><b>Message:</b><br>$message";
+    $mail->Body    = "<b>Nom:</b> $name<br><b>Email:</b> $email<br><b>Téléphone:</b> $phone<br><b>Sujet:</b> $subjectField<br><b>Message:</b><br>$message";
 
     $mail->send();
     echo json_encode(['status' => 'OK']);
