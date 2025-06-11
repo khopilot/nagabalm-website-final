@@ -6,17 +6,17 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 const styles = {
-  faqSection: "w-full bg-[#CFE8EE] py-16 px-4 overflow-hidden",
+  faqSection: "w-full bg-[#CFE8EE] py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 overflow-hidden",
   container: "max-w-6xl mx-auto",
-  content: "flex flex-col md:flex-row items-start justify-between gap-8",
-  leftColumn: "flex-1",
-  rightColumn: "flex-1 max-w-2xl w-full",
-  faqList: "flex flex-col gap-4",
-  faqItem: "border-2 border-[#F9461C] rounded-lg bg-white transition-all duration-200",
-  question: "w-full flex justify-between items-center px-6 py-4 text-left text-base font-semibold text-gray-900 focus:outline-none",
+  content: "flex flex-col lg:flex-row items-start justify-between gap-6 sm:gap-8 lg:gap-12",
+  leftColumn: "flex-1 w-full lg:w-auto",
+  rightColumn: "flex-1 max-w-none lg:max-w-2xl w-full",
+  faqList: "flex flex-col gap-3 sm:gap-4",
+  faqItem: "border-2 border-[#F9461C] rounded-lg bg-white transition-all duration-200 shadow-sm hover:shadow-md",
+  question: "w-full flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4 text-left text-sm sm:text-base font-semibold text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#F9461C] focus:ring-opacity-20",
   open: "bg-[#FFF6F0]",
-  icon: "ml-4 text-[#F9461C] text-2xl",
-  answer: "px-6 pb-4 text-sm text-gray-700 border-t border-[#F9461C]",
+  icon: "ml-2 sm:ml-4 text-[#F9461C] text-xl sm:text-2xl flex-shrink-0",
+  answer: "px-4 sm:px-6 pb-3 sm:pb-4 text-xs sm:text-sm md:text-base text-gray-700 border-t border-[#F9461C] leading-relaxed",
   inlineLink: "text-[#F9461C] font-medium hover:underline"
 };
 
@@ -114,10 +114,10 @@ const FaqAccordionSection = () => {
       <div className={styles.container + " relative z-10"}>
         <div className={styles.content}>
           <div className={styles.leftColumn}>
-            <div className="flex flex-col justify-start items-start max-w-xl z-10 mt-0">
-              <h1 className="text-[#F9461C] text-4xl sm:text-5xl font-extrabold mb-2">{t('hero.title')}</h1>
-              <div className="text-[#F9461C] italic text-2xl font-bold mb-4">{t('hero.subtitle')}</div>
-              <p className="text-gray-700 text-base mb-2">
+            <div className="flex flex-col justify-start items-start max-w-xl z-10 mt-0 text-center lg:text-left">
+              <h1 className="text-[#F9461C] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-2 sm:mb-3">{t('hero.title')}</h1>
+              <div className="text-[#F9461C] italic text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4">{t('hero.subtitle')}</div>
+              <p className="text-gray-700 text-sm sm:text-base mb-2 leading-relaxed">
                 {t('hero.description')}
               </p>
             </div>
