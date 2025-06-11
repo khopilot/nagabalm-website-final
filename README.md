@@ -94,11 +94,8 @@ send email via SMTP:
 - `SMTP_USER` – your SMTP username
 - `SMTP_PASS` – your SMTP password
 
-These variables are required for the contact API to authenticate with your mail
+These variables are required for `sendmail.php` to authenticate with your mail
 server in production.
-
-The contact form sends requests to `/api/sendmail`. A rewrite rule also forwards
-`/sendmail.php` to this API endpoint for backward compatibility.
 
 ---
 
