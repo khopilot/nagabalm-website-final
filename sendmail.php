@@ -30,15 +30,29 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
+
+// Retrieve SMTP credentials from environment variables
+$smtpUser = getenv('SMTP_USER');
+$smtpPass = getenv('SMTP_PASS');
+
+// Validate that credentials exist before configuring PHPMailer.
+// If either value is missing, return a 500 error so the caller
+// knows the email service is not properly configured.
+if (empty($smtpUser) || empty($smtpPass)) {
+    http_response_code(500);
+    echo json_encode(['error' => 'SMTP credentials are not configured']);
+    exit;
+}
+
 $mail = new PHPMailer(true);
 
 try {
     $mail->isSMTP();
     $mail->Host = 'smtp.hostinger.com';
     $mail->SMTPAuth = true;
-    // Credentials are read from environment variables for better security
-    $mail->Username = getenv('SMTP_USER');
-    $mail->Password = getenv('SMTP_PASS');
+    // Use previously validated credentials
+    $mail->Username = $smtpUser;
+    $mail->Password = $smtpPass;
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port = 465;
 
