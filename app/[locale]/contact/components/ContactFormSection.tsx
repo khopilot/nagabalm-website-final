@@ -13,7 +13,7 @@ const ContactFormSection = () => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const res = await fetch('/sendmail.php', { method: 'POST', body: data });
+    const res = await fetch('/api/sendmail', { method: 'POST', body: data });
     const json = await res.json();
     if (res.ok && json.status === 'OK') {
       alert('Message envoyé !');
