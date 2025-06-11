@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 const styles = {
-  faqSection: "w-full bg-[#CFE8EE] py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 overflow-hidden",
+  faqSection: "w-full bg-[#CFE8EE] py-6 sm:py-8 md:py-12 lg:py-16 px-4 sm:px-6 md:px-8 overflow-hidden",
   container: "max-w-6xl mx-auto",
   content: "flex flex-col lg:flex-row items-start justify-between gap-6 sm:gap-8 lg:gap-12",
   leftColumn: "flex-1 w-full lg:w-auto",
@@ -115,9 +115,9 @@ const FaqAccordionSection = () => {
         <div className={styles.content}>
           <div className={styles.leftColumn}>
             <div className="flex flex-col justify-start items-start max-w-xl z-10 mt-0 text-center lg:text-left">
-              <h1 className="text-[#F9461C] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-2 sm:mb-3">{t('hero.title')}</h1>
-              <div className="text-[#F9461C] italic text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4">{t('hero.subtitle')}</div>
-              <p className="text-gray-700 text-sm sm:text-base mb-2 leading-relaxed">
+              <h1 className="text-[#F9461C] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3 sm:mb-4 leading-tight">{t('hero.title')}</h1>
+              <div className="text-[#F9461C] italic text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6">{t('hero.subtitle')}</div>
+              <p className="text-gray-700 text-base sm:text-lg mb-4 leading-relaxed max-w-lg">
                 {t('hero.description')}
               </p>
             </div>

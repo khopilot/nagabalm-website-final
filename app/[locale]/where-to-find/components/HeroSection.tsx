@@ -30,7 +30,7 @@ const WhereToFindHeroSection = () => {
           fill
           className="object-contain w-full h-full transform scale-x-[-1]"
           priority
-          sizes="(max-width: 640px) 96px, (max-width: 768px) 128px, (max-width: 1024px) 160px, (max-width: 1280px) 224px, 288px"
+          sizes="(max-width: 640px) 40px, (max-width: 768px) 50px, (max-width: 1024px) 60px, (max-width: 1280px) 80px, 100px"
         />
       </div>
 
