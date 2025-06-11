@@ -13,13 +13,18 @@ const ContactFormSection = () => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const res = await fetch('/sendmail.php', { method: 'POST', body: data });
-    const json = await res.json();
-    if (res.ok && json.status === 'OK') {
-      alert('Message envoyé !');
-      form.reset();
-    } else {
-      alert('Erreur : ' + (json.error || 'Problème'));
+    try {
+      const res = await fetch('/sendmail.php', { method: 'POST', body: data });
+      const json = await res.json();
+      if (res.ok && json.status === 'OK') {
+        alert('Message envoyé !');
+        form.reset();
+      } else {
+        alert('Erreur : ' + (json.error || 'Problème'));
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Erreur réseau');
     }
   };
 
