@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { useTranslations } from 'next-intl';
 
 const ContactFormSection = () => {
@@ -13,13 +12,7 @@ const ContactFormSection = () => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const res = await fetch('/api/sendmail', { method: 'POST', body: data });
-    const json = await res.json();
-    if (res.ok && json.status === 'OK') {
-      alert('Message envoyé !');
-      form.reset();
-    } else {
-      alert('Erreur : ' + (json.error || 'Problème'));
+
     }
   };
 
