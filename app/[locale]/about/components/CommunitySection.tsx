@@ -24,14 +24,14 @@ const CommunitySection = () => {
   const t = useTranslations('about.community');
   
   return (
-    <section className="w-full flex flex-col items-center py-16 bg-white px-4">
-      <h2 className="text-[#F9461C] text-4xl font-extrabold mb-4 text-center">{t('title')}</h2>
-      <p className="text-gray-700 text-lg mb-8 text-center max-w-2xl">
+    <section className="w-full flex flex-col items-center py-12 sm:py-16 bg-white px-4 sm:px-6">
+      <h2 className="text-[#F9461C] text-2xl sm:text-3xl md:text-4xl font-extrabold mb-3 sm:mb-4 text-center">{t('title')}</h2>
+      <p className="text-gray-700 text-base sm:text-lg mb-6 sm:mb-8 text-center max-w-2xl">
         {t('subtitle')}
       </p>
       
       <div className="w-full max-w-6xl">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-3 md:gap-4">
           {communityImages.map((img, idx) => {
             // La première image est grande en haut à gauche
             if (idx === 0) {
