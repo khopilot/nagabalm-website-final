@@ -41,8 +41,13 @@ try {
     $mail->Subject = 'Nouveau message du site';
     $mail->Body    = "<b>Nom:</b> $name<br><b>Email:</b> $email<br><b>Message:</b><br>$message";
 
-    $mail->send();
-    echo json_encode(['status' => 'OK']);
+    if (getenv('DISABLE_EMAIL_SEND') === '1') {
+        // In test environments, skip sending the email
+        echo json_encode(['status' => 'OK_TEST']);
+    } else {
+        $mail->send();
+        echo json_encode(['status' => 'OK']);
+    }
 } catch (Exception $e) {
     http_response_code(500);
     echo json_encode(['error' => $mail->ErrorInfo]);
