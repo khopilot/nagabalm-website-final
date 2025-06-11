@@ -86,6 +86,27 @@ npm run build
 npm start
 ```
 
+### PHP Email Setup
+
+Install PHP dependencies for the contact form:
+
+```bash
+composer install
+```
+
+Update `sendmail.php` with your Hostinger SMTP credentials:
+
+```php
+$mail->Host = 'smtp.hostinger.com';
+$mail->Username = 'info@yourdomain.com';
+$mail->Password = 'your-password';
+$mail->setFrom('info@yourdomain.com', 'Your Site');
+$mail->addAddress('info@yourdomain.com');
+```
+
+Deploy `sendmail.php` (along with the `vendor/` folder) to your Hostinger `public_html` directory. 
+Ensure PHP is enabled and your Next.js contact form sends POST requests to `https://yourdomain.com/sendmail.php`.
+
 ---
 
 ## 🛠️ Tech Stack
