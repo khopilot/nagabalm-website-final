@@ -11,19 +11,20 @@ const manifest = (): MetadataRoute.Manifest => {
     theme_color: "#F9461C",
     icons: [
       {
-        src: "/images/products-images/NB-OintmentsBox3.jpg",
-        sizes: "1200x630",
-        type: "image/jpeg"
-      },
-      {
-        src: "/images/Logo/Logo-Landscape-Compact@4x.png",
+        src: "/favicon.png",
         sizes: "192x192",
         type: "image/png",
         purpose: "maskable"
       },
       {
-        src: "/images/Logo/Logo-Landscape-Compact@4x.png",
+        src: "/favicon.png",
         sizes: "512x512",
+        type: "image/png",
+        purpose: "any"
+      },
+      {
+        src: "/apple-touch-icon.png",
+        sizes: "180x180",
         type: "image/png",
         purpose: "any"
       }

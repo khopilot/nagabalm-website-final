@@ -38,8 +38,10 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
         {/* Favicon */}
-        <link rel="icon" href="/images/Naga Balm__SecondaryLogomark_Primary.png" />
-        <link rel="apple-touch-icon" href="/images/Naga Balm__SecondaryLogomark_Primary.png" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         
         {/* Additional meta tags for better sharing */}
         <meta property="og:image:width" content="1200" />
@@ -54,7 +56,7 @@ export default async function RootLayout({
               "@type": "Organization",
               "name": "Naga Balm",
               "url": "https://nagabalm.com",
-              "logo": "https://nagabalm.com/images/Naga Balm__SecondaryLogomark_Primary.png",
+              "logo": "https://nagabalm.com/favicon.png",
               "sameAs": [
                 "https://facebook.com/nagabalmkh",
                 "https://instagram.com/nagabalm"
