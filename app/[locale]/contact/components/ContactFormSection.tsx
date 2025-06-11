@@ -9,27 +9,41 @@ const ContactFormSection = () => {
   const tInfo = useTranslations('contact.info');
   const tVisit = useTranslations('contact.visit');
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const res = await fetch('/sendmail.php', { method: 'POST', body: data });
+    const json = await res.json();
+    if (res.ok && json.status === 'OK') {
+      alert('Message envoyé !');
+      form.reset();
+    } else {
+      alert('Erreur : ' + (json.error || 'Problème'));
+    }
+  };
+
   return (
     <section className="w-full bg-[#FFE6B0] flex flex-col items-center justify-center py-8 sm:py-12 px-4 sm:px-6 lg:px-8 relative">
       <div className="absolute left-0 bottom-0 w-full h-1/2 bg-white z-0" />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 w-full max-w-7xl mx-auto items-stretch relative z-10">
         {/* Left: Form */}
         <div className="w-full flex justify-center h-full">
-          <form className="w-full max-w-xl bg-[#FFF9F0] border border-[#F9461C]/40 rounded-xl shadow-md p-6 sm:p-8 lg:p-10 flex flex-col h-full gap-3 sm:gap-4">
+          <form id="contactForm" onSubmit={handleSubmit} className="w-full max-w-xl bg-[#FFF9F0] border border-[#F9461C]/40 rounded-xl shadow-md p-6 sm:p-8 lg:p-10 flex flex-col h-full gap-3 sm:gap-4">
             <div>
               <div className="font-bold text-base sm:text-lg mb-2">{tForm('title')}</div>
               <div className="text-sm mb-3 sm:mb-4">{tForm('subtitle')}</div>
               <label className="text-xs sm:text-sm font-semibold mb-1 block" htmlFor="contact-fullname">{tForm('fields.fullName')}</label>
-              <input id="contact-fullname" type="text" placeholder={tForm('fields.fullName')} className="border-b border-[#00B388] bg-transparent py-2 px-1 focus:outline-none mb-3 w-full text-sm sm:text-base" />
+              <input id="contact-fullname" name="name" type="text" placeholder={tForm('fields.fullName')} className="border-b border-[#00B388] bg-transparent py-2 px-1 focus:outline-none mb-3 w-full text-sm sm:text-base" />
               <label className="text-xs sm:text-sm font-semibold mb-1 block" htmlFor="contact-email">{tForm('fields.email')}</label>
-              <input id="contact-email" type="email" placeholder={tForm('fields.email')} className="border-b border-[#00B388] bg-transparent py-2 px-1 focus:outline-none mb-3 w-full text-sm sm:text-base" />
+              <input id="contact-email" name="email" type="email" placeholder={tForm('fields.email')} className="border-b border-[#00B388] bg-transparent py-2 px-1 focus:outline-none mb-3 w-full text-sm sm:text-base" />
               <label className="text-xs sm:text-sm font-semibold mb-1 block" htmlFor="contact-phone">{tForm('fields.phone')}</label>
-              <input id="contact-phone" type="text" placeholder={tForm('fields.phone')} className="border-b border-[#00B388] bg-transparent py-2 px-1 focus:outline-none mb-3 w-full text-sm sm:text-base" />
+              <input id="contact-phone" name="phone" type="text" placeholder={tForm('fields.phone')} className="border-b border-[#00B388] bg-transparent py-2 px-1 focus:outline-none mb-3 w-full text-sm sm:text-base" />
               <label className="text-xs sm:text-sm font-semibold mb-1 block" htmlFor="contact-subject">{tForm('fields.subject')}</label>
-              <input id="contact-subject" type="text" placeholder={tForm('fields.subject')} className="border-b border-[#00B388] bg-transparent py-2 px-1 focus:outline-none mb-3 w-full text-sm sm:text-base" />
+              <input id="contact-subject" name="subject" type="text" placeholder={tForm('fields.subject')} className="border-b border-[#00B388] bg-transparent py-2 px-1 focus:outline-none mb-3 w-full text-sm sm:text-base" />
             </div>
             <div className="mt-auto flex flex-col gap-3 sm:gap-4">
-              <textarea placeholder={tForm('fields.message')} className="border-b border-[#00B388] bg-transparent py-2 px-1 focus:outline-none min-h-[60px] sm:min-h-[80px] text-sm sm:text-base" />
+              <textarea name="message" placeholder={tForm('fields.message')} className="border-b border-[#00B388] bg-transparent py-2 px-1 focus:outline-none min-h-[60px] sm:min-h-[80px] text-sm sm:text-base" />
               <div className="flex justify-end">
                 <button type="submit" className="bg-[#F9461C] hover:bg-[#d13a17] text-white font-bold py-2 sm:py-2.5 px-6 sm:px-8 rounded-full text-sm sm:text-base transition-colors flex items-center gap-2">
                   {tForm('button')} <span className="ml-2">→</span>
